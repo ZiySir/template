@@ -1,0 +1,116 @@
+import com.diffplug.spotless.LineEnding
+
+buildscript {
+	repositories {
+		gradlePluginPortal()
+		mavenLocal()
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath 'org.springframework.boot:spring-boot-gradle-plugin:3.3.3' // spring boot 版本
+		classpath 'io.spring.gradle:dependency-management-plugin:1.1.6'
+		classpath 'com.palantir.baseline:gradle-baseline-java:5.65.0'
+		classpath 'com.palantir.javaformat:gradle-palantir-java-format:2.50.0'
+		classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.25.0'
+	}
+}
+
+group = 'me.template'
+version = '0.0.1-SNAPSHOT'
+def javaVersion = 21
+
+apply plugin: 'com.palantir.baseline-config'
+apply plugin: 'com.palantir.baseline-java-versions' // 配置java版本
+apply plugin: 'com.palantir.baseline-idea'
+
+javaVersions {
+	libraryTarget = javaVersion
+	distributionTarget = javaVersion
+	runtime = javaVersion
+}
+
+
+allprojects {
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+
+	apply plugin: 'com.palantir.baseline-error-prone'
+	apply plugin: 'com.palantir.baseline-checkstyle'
+	apply plugin: 'com.palantir.java-format' // spotless使用的格式规则，单独升级可适配最新的java版本语法
+	apply plugin: 'com.diffplug.spotless' // spotless格式化工具
+	apply plugin: 'com.palantir.baseline-encoding'
+	apply plugin: 'java'
+	apply plugin: 'java-library'
+
+	bootJar {
+		enabled = false
+	}
+
+	bootBuildImage {
+		enabled = false
+	}
+
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(javaVersion)
+		}
+	}
+
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	spotless {
+		// Java
+		java {
+			target fileTree('.') { include 'src/**/*.java'; exclude('**/*Proto.java') }
+			lineEndings LineEnding.UNIX
+			endWithNewline()
+			indentWithSpaces 4
+			formatAnnotations()
+			custom 'Lambda fix', { it.replace('} )', '})').replace('} ,', '},') }
+		}
+
+		groovyGradle {
+			greclipse()
+		}
+	}
+
+	tasks.withType(JavaCompile).configureEach(new Action<Task>() {
+				void execute(Task task) {
+					// 禁止baseline errorprone编译规则
+					task.options.errorprone.disable 'InvalidBlockTag', 'StrictUnusedVariable', 'EmptyCatch'
+				}
+			})
+
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter'
+		compileOnly 'org.projectlombok:lombok'
+		developmentOnly 'org.springframework.boot:spring-boot-devtools'
+		developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+		annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+		annotationProcessor 'org.projectlombok:lombok'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+}
+
+// 应用gradle
+new File("${rootDir}/scripts").eachFile(groovy.io.FileType.FILES) {
+	if (it.name.endsWith('.gradle')) {
+		println "apply gradle script:${it.absolutePath}"
+		apply from: it.absolutePath
+	}
+}

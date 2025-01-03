@@ -1,0 +1,24 @@
+rootProject.name = 'template'
+// 定义include语句
+
+rootProject.children.each { p ->
+	walk(p) { project, name ->
+		project.buildFileName = "${name}.gradle"
+		if (!project.buildFile.exists()) {
+			new File(project.projectDir, "build.gradle").with { buildGradleFile ->
+				if (buildGradleFile.exists()) {
+					buildGradleFile.renameTo(project.buildFile)
+				}
+			}
+		}
+		println "project name: ${project.name}\tbuild file: ${project.buildFileName}"
+	}
+}
+
+static def walk(ProjectDescriptor project, Closure cb) {
+	def projectName = project.name.split(":").last()
+	cb.call(project, projectName)
+	project.children.each { subProject ->
+		walk(subProject, cb)
+	}
+}
