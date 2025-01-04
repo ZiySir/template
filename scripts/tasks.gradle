@@ -1,0 +1,60 @@
+import java.nio.file.Files
+
+project.tasks.register("git-pre-commit") {
+    group = "git"
+    description = "注册/卸载 git预提交脚本"
+
+    doLast {
+        print("注册(1) 卸载(2):")
+        System.out.flush()
+        def sc = new Scanner(System.in)
+        def choice = sc.nextInt()
+        sc.close()
+        switch (choice) {
+            case 1:
+                registerPreCommit()
+                break
+            case 2:
+                unRegisterPreCommit()
+                break
+            default:
+                println '输入错误'
+        }
+    }
+}
+
+def unRegisterPreCommit() {
+    def hook = new File(rootDir, '.git/hooks/pre-commit')
+    if (hook.exists()) {
+        hook.delete()
+        println '删除git pre-commit成功'
+    } else {
+        println '不存在git pre-commit, 无需删除'
+    }
+}
+
+def registerPreCommit() {
+    def hook = new File(rootDir, '.git/hooks/pre-commit')
+    def script = new File(rootDir, 'scripts/pre-commit.sh')
+    if (!script.exists()) {
+        System.err.println("脚本不存在:${script.absolutePath}")
+    }
+    if (hook.exists()) {
+        // 比较md5
+        def md5 = hook.text.md5()
+        def shMd5 = script.text.md5()
+        if (md5 == shMd5) {
+            println "脚本已存在:${hook.absolutePath}"
+        } else {
+            Files.delete(hook.toPath())
+        }
+    }
+    if (!hook.exists()) {
+        Files.copy(script.toPath(), hook.toPath())
+        println '注册git预提交脚本成功'
+    }
+    // 设置pre-commit权限为可执行
+    if (!hook.canExecute()) {
+        hook.setExecutable(true)
+    }
+}

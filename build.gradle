@@ -18,7 +18,7 @@ buildscript {
 
 group = 'me.template'
 version = '0.0.1-SNAPSHOT'
-def javaVersion = 21
+def javaVersion = 17
 
 apply plugin: 'com.palantir.baseline-config'
 apply plugin: 'com.palantir.baseline-java-versions' // 配置java版本
