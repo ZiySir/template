@@ -1,4 +1,4 @@
-rootProject.name = 'template'
+rootProject.name = rootDir.name
 // 定义include语句
 
 rootProject.children.each { p ->
