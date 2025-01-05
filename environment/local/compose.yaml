@@ -1,0 +1,23 @@
+volumes:
+  nginxconf:
+    driver: local
+    driver_opts:
+      type: none # 置文件驱动为none才使用bind
+      o: bind # 这里通过绑定挂载，避免挂载覆盖问题
+      device: ${DATA_DIR}/nginx/conf.d
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      no_cache: true
+    volumes:
+      - nginxconf:/etc/nginx/conf.d
+    network_mode: host
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${DATA_DIR}/portainer:/data
+    network_mode: host
