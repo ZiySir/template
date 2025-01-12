@@ -97,11 +97,11 @@ allprojects {
 			mavenBom 'cn.hutool:hutool-bom:5.8.35'
 		}
 		dependencies {
-//			dependencySet(group: 'me.ziyframework', version: '3.3.3') {
-//				entry("core-spring-boot-starter")
-//				entry("redis-spring-boot-starter")
-//				entry("web-spring-boot-starter")
-//			}
+			dependencySet(group: 'me.ziyframework', version: '3.3.3') {
+				entry("core-spring-boot-starter")
+				entry("redis-spring-boot-starter")
+				entry("web-spring-boot-starter")
+			}
 
 			// 常用工具类
 			dependency 'com.google.guava:guava:33.4.0-jre'
@@ -117,6 +117,10 @@ allprojects {
 	}
 
 	dependencies {
+		//		implementation('me.ziyframework:core-spring-boot-starter') {
+		//			changing = false
+		//		}
+
 		implementation 'org.springframework.boot:spring-boot-starter'
 		compileOnly 'org.projectlombok:lombok'
 		developmentOnly 'org.springframework.boot:spring-boot-devtools'
