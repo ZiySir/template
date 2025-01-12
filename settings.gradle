@@ -1,5 +1,18 @@
+pluginManagement {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		gradlePluginPortal()
+	}
+	plugins {
+
+	}
+}
+
 rootProject.name = rootDir.name
-// 定义include语句
+
+// example => module:user-module
+// change     :module:user-module => module:user-module
 
 rootProject.children.each { p ->
 	walk(p) { project, name ->
