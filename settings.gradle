@@ -5,22 +5,25 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 	plugins {
-		id("io.spring.dependency-management") version "1.1.7"
-		id("org.springframework.boot") version "3.3.3"
+		id("io.spring.dependency-management") version settings.prop("io.spring.dependency-management.version")
+		id("org.springframework.boot") version settings.prop("org.springframework.boot.version")
+
+		def baselineVersionPropertyName = 'com.palantir.baseline.version'
 		// baseline support
-		id("com.palantir.baseline-idea") version "6.9.0"
-		id("com.palantir.baseline-config") version "6.9.0"
+		id("com.palantir.baseline-idea") version settings.prop("com.palantir.baseline-idea.version", baselineVersionPropertyName)
+		id("com.palantir.baseline-config") version settings.prop("com.palantir.baseline-config.version", baselineVersionPropertyName)
 		// baseline 代码规范
-		id("com.palantir.baseline-error-prone") version "6.9.0"
-		id("com.palantir.baseline-checkstyle") version "6.9.0"
-		id("com.palantir.java-format") version "2.50.0"
+		id("com.palantir.baseline-error-prone") version settings.prop("com.palantir.baseline-error-prone.version", baselineVersionPropertyName)
+		id("com.palantir.baseline-checkstyle") version settings.prop("com.palantir.baseline-checkstyle.version", baselineVersionPropertyName)
+		id("com.palantir.java-format") version settings.prop("com.palantir.java-format.version")
 		// spotless
-		id("com.diffplug.spotless") version "7.0.1"
+		id("com.diffplug.spotless") version settings.prop("com.diffplug.spotless.version")
 		// baseline 检查依赖关系
-		id("com.palantir.baseline-exact-dependencies") version "6.9.0"
-		id("com.palantir.baseline-encoding") version "6.9.0"
+		id("com.palantir.baseline-exact-dependencies") version prop("com.palantir.baseline-exact-dependencies.version", baselineVersionPropertyName)
+		id("com.palantir.baseline-encoding") version prop("com.palantir.baseline-encoding.version", baselineVersionPropertyName)
 	}
 }
+
 
 rootProject.name = rootDir.name
 
@@ -46,4 +49,12 @@ static def walk(ProjectDescriptor project, Closure cb) {
 	project.children.each { subProject ->
 		walk(subProject, cb)
 	}
+}
+
+def prop(String prop, String defaultPropertyName = null) {
+	def value = getProperty(prop)
+	if (value == null && defaultPropertyName != null) {
+		value = getProperty(defaultPropertyName)
+	}
+	return value
 }

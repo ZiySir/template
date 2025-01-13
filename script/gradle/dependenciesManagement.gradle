@@ -1,0 +1,7 @@
+apply plugin: 'io.spring.dependency-management'
+
+dependenciesManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}

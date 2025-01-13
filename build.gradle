@@ -8,11 +8,20 @@ allprojects {
 	group = 'me.template'
 }
 
-// 应用gradle
-new File("${rootDir}/scripts").eachFile(groovy.io.FileType.FILES) {
-	if (it.name.endsWith('.gradle')) {
-		println "apply gradle script:${it.absolutePath}"
-		apply from: it.absolutePath
+applyFromGradleFiles(new File(rootDir, "script/gradle"))
+
+/**
+ * 将指定目录下的所有直接.gradle文件进行apply from:应用.
+ */
+def applyFromGradleFiles(File dir) {
+	if (!dir.isDirectory()) {
+		return
+	}
+	dir.eachFileRecurse { File file ->
+		if (file.name.endsWith(".gradle")) {
+			println "apply from: ${file.name}"
+			apply from: file
+		}
 	}
 }
 
