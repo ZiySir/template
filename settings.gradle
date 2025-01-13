@@ -5,14 +5,26 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 	plugins {
-
+		id("io.spring.dependency-management") version "1.1.7"
+		id("org.springframework.boot") version "3.3.3"
+		// baseline support
+		id("com.palantir.baseline-idea") version "6.9.0"
+		id("com.palantir.baseline-config") version "6.9.0"
+		// baseline 代码规范
+		id("com.palantir.baseline-error-prone") version "6.9.0"
+		id("com.palantir.baseline-checkstyle") version "6.9.0"
+		id("com.palantir.java-format") version "2.50.0"
+		// spotless
+		id("com.diffplug.spotless") version "7.0.1"
+		// baseline 检查依赖关系
+		id("com.palantir.baseline-exact-dependencies") version "6.9.0"
+		id("com.palantir.baseline-encoding") version "6.9.0"
 	}
 }
 
 rootProject.name = rootDir.name
 
-// example => module:user-module
-// change     :module:user-module => module:user-module
+include("example:demo1")
 
 rootProject.children.each { p ->
 	walk(p) { project, name ->
