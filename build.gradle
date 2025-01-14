@@ -2,8 +2,6 @@ plugins {
 	id("base")
 	id("com.palantir.baseline-config")
 	id("com.palantir.baseline-idea")
-	id("io.spring.dependency-management") apply false
-	id("org.springframework.boot") apply false
 }
 
 allprojects {
