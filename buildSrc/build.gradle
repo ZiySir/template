@@ -1,6 +1,3 @@
-plugins {
-    id("groovy")
-}
 
 applyFromGradleFiles(new File(rootDir, "share"))
 
