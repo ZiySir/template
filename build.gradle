@@ -1,11 +1,15 @@
 plugins {
-	id("base")
-	id("com.palantir.baseline-config")
-	id("com.palantir.baseline-idea")
+	id 'base'
+	id 'com.palantir.baseline-config' version '6.9.0'
+	id 'com.palantir.baseline-idea' version '6.9.0'
 }
 
 allprojects {
 	group = 'me.template'
+}
+
+repositories {
+	mavenCentral()
 }
 
 applyFromGradleFiles(new File(rootDir, "script/gradle"))
