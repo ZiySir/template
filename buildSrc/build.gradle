@@ -1,25 +1,26 @@
 plugins {
-    id("org.springframework.boot")
-    id("io.spring.dependency-management")
+    id 'groovy-gradle-plugin' // 预编译脚本插件
 }
 
-dependencyManagement {
+dependencies {
+    implementation gradleApi() // 使用 Gradle API
+    implementation localGroovy() // 使用 Groovy
 
+    implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.1.7"
+    implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:3.3.3" // SpringBoot版本
+
+    implementation "com.palantir.baseline-config:com.palantir.baseline-config.gradle.plugin:6.9.0"
+    implementation "com.palantir.baseline-idea:com.palantir.baseline-idea.gradle.plugin:6.9.0"
+    implementation "com.palantir.baseline-error-prone:com.palantir.baseline-error-prone.gradle.plugin:6.9.0"
+    implementation "com.palantir.baseline-checkstyle:com.palantir.baseline-checkstyle.gradle.plugin:6.9.0"
+    implementation "com.palantir.baseline-exact-dependencies:com.palantir.baseline-exact-dependencies.gradle.plugin:6.9.0"
+
+    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.50.0"
+    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:7.0.2"
 }
 
-applyFromGradleFiles(new File(rootDir, "share"))
-
-/**
- * 将指定目录下的所有直接.gradle文件进行apply from:应用.
- */
-def applyFromGradleFiles(File dir) {
-    if (!dir.isDirectory()) {
-        return
-    }
-    dir.eachFileRecurse { File file ->
-        if (file.name.endsWith(".gradle")) {
-            println "apply from: ${file.name}"
-            apply from: file
-        }
-    }
+repositories {
+    gradlePluginPortal() // 优先使用gradle插件官方库
+    mavenLocal()
+    mavenCentral()
 }

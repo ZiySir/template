@@ -15,6 +15,7 @@ fi
 
 
 ./gradlew cleanIdea && \
+rm -rf .idea || true && \
 ./gradlew baselineUpdateConfig && \
 ./gradlew idea && \
 ./gradlew dependencies

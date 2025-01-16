@@ -1,0 +1,18 @@
+plugins {
+    id 'base'
+    id 'java'
+}
+
+description = "Java开发基础包，引入该包即可使用Java开发基础功能"
+
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(21)
+//    }
+//}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
