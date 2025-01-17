@@ -16,3 +16,12 @@ configurations {
         extendsFrom annotationProcessor
     }
 }
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    compileOnly 'org.immutables:value:2.10.1'
+    annotationProcessor 'org.immutables:value:2.10.1'
+}

@@ -1,19 +1,18 @@
 plugins {
 	id 'java-basic'
 	id 'baseline-base'
-	id 'baseline'
 }
 
 allprojects {
 	group = 'me.template'
-}
 
-// 仓库配置
-repositories {
-	mavenLocal()
-	gradlePluginPortal()
-	mavenCentral()
-	maven { url 'https://maven.aliyun.com/repository/public/' }
+	// 仓库配置
+	repositories {
+		mavenLocal()
+		maven { url 'https://maven.aliyun.com/repository/public/' }
+		mavenCentral()
+		gradlePluginPortal()
+	}
 }
 
 /**

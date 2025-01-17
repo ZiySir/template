@@ -16,11 +16,11 @@ dependencies {
     implementation "com.palantir.baseline-exact-dependencies:com.palantir.baseline-exact-dependencies.gradle.plugin:6.9.0"
 
     implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.50.0"
-    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:7.0.2"
+    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:6.25.0"
 }
 
 repositories {
-    gradlePluginPortal() // 优先使用gradle插件官方库
     mavenLocal()
     mavenCentral()
+    gradlePluginPortal()
 }

@@ -2,6 +2,8 @@ plugins {
     id 'org.springframework.boot'
 }
 
+description = "SpringBoot应用开发支持插件"
+
 dependencies {
 
     // SpringBoot开发基础依赖项
@@ -9,10 +11,6 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-
-    // immutables
-    compileOnly 'org.immutables:value:2.10.1'
-    annotationProcessor 'org.immutables:value:2.10.1'
 
     // lombok
     testCompileOnly 'org.projectlombok:lombok'
@@ -36,3 +34,6 @@ bootRun {
     enabled = false
 }
 
+test {
+    useJUnitPlatform()
+}

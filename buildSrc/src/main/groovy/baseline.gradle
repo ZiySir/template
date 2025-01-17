@@ -12,9 +12,7 @@ plugins {
     id 'com.palantir.baseline-exact-dependencies' // 帮助优化依赖关系
 }
 
-// 这些插件：需要用apply plugin.
-apply plugin: 'com.palantir.baseline-encoding'
-apply plugin: 'com.palantir.baseline-immutables'
+description = "palantir baseline代码规范化插件"
 
 // 代码自动格式化配置.
 spotless {
