@@ -1,5 +1,7 @@
 package me.template;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 /**
  *
  * @author ziy
