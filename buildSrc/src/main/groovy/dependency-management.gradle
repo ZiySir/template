@@ -4,5 +4,5 @@ plugins {
 
 description = "依赖版本管理"
 
-dependencyManagement {
-}
+//dependencyManagement {
+//}

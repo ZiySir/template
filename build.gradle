@@ -1,6 +1,7 @@
 plugins {
 	id 'java-basic'
-	id 'baseline-base'
+	id 'com.palantir.baseline-config'
+	id 'com.palantir.baseline-idea'
 }
 
 allprojects {

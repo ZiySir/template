@@ -1,6 +1,0 @@
-plugins {
-    id 'com.palantir.baseline-config'
-    id 'com.palantir.baseline-idea'
-}
-
-description = "palantir baseline的项目构建基础插件 (通常只在根目录引入即可)"
