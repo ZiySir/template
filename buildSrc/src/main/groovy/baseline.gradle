@@ -9,15 +9,10 @@ plugins {
     id 'com.diffplug.spotless'
     id 'com.palantir.java-format' // palantir风格
 
-    // 其他palantir baseline系列插件
     id 'com.palantir.baseline-exact-dependencies' // 帮助优化依赖关系
 }
 
 description = "palantir baseline代码规范化插件"
-
-dependencies {
-    compileOnly 'com.google.errorprone:error_prone_check_api:2.36.0'
-}
 
 // 代码自动格式化配置.
 spotless {

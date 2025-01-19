@@ -1,9 +1,9 @@
 plugins {
-    id 'java-basic'
-    id 'baseline'
-    id 'spring-boot-support'
+	id 'java-basic'
+	id 'baseline'
+	id 'spring-boot-support'
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
