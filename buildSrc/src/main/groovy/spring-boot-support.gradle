@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+}
+
+description = 'spring-boot支撑插件'
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // SpringBoot开发基础依赖项
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // lombok
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // junit test
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+bootJar {
+    enabled = false
+}
+
+bootBuildImage {
+    enabled = false
+}
+
+bootRun {
+    enabled = false
+}
+
+test {
+    useJUnitPlatform()
+}
