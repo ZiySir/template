@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * demo1.
+ * created on 2025-01
  * @author ziy
- * @date 2025-01
  */
 @SpringBootApplication
 @Controller
@@ -19,6 +19,9 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
     }
 
+    /**
+     * demo api.
+     */
     @RequestMapping("/demo1")
     public ResponseEntity<String> demo1() {
         return ResponseEntity.ok("demo1");
