@@ -14,7 +14,4 @@ if [[ $confirm == [yY] ]]; then
 fi
 
 
-./gradlew cleanIdea && \
-./gradlew baselineUpdateConfig && \
-./gradlew idea && \
-./gradlew dependencies
+./gradlew cleanIdea baselineUpdateConfig idea dependencies
