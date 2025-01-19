@@ -9,7 +9,7 @@ volumes:
 services:
   nginx:
     build:
-      context: ./nginx
+      context: nginx
       no_cache: true
     volumes:
       - nginxconf:/etc/nginx/conf.d

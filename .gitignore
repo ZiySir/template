@@ -40,4 +40,4 @@ out/
 **/rebel.xml
 
 ### 开发环境 ###
-environment/**/compontents/
+project/environment/**/compontents/
