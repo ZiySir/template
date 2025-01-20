@@ -10,6 +10,7 @@ plugins {
     id 'com.diffplug.spotless'
     id 'com.palantir.java-format' // palantir风格
 
+    id 'com.palantir.baseline-encoding'
     id 'com.palantir.baseline-exact-dependencies' // 帮助优化依赖关系
 }
 
