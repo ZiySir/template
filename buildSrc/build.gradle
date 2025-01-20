@@ -1,5 +1,5 @@
 plugins {
-    id 'groovy-gradle-plugin' // 预编译脚本插件
+    id 'groovy-gradle-plugin'
 }
 
 dependencies {
