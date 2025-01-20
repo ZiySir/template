@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'java-library'
+    id 'com.palantir.baseline-idea'
     // 代码检查插件
     id 'com.palantir.baseline-error-prone'
     id 'com.palantir.baseline-checkstyle'
