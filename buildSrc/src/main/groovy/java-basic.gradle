@@ -26,3 +26,11 @@ dependencies {
     compileOnly 'org.immutables:value:2.10.1'
     annotationProcessor 'org.immutables:value:2.10.1'
 }
+
+// 仓库配置
+repositories {
+    mavenLocal()
+    gradlePluginPortal()
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenCentral()
+}

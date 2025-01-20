@@ -6,14 +6,6 @@ plugins {
 
 allprojects {
 	group = 'me.template'
-
-	// 仓库配置
-	repositories {
-		mavenLocal()
-		gradlePluginPortal()
-		maven { url 'https://maven.aliyun.com/repository/public/' }
-		mavenCentral()
-	}
 }
 
 /**
