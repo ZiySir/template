@@ -17,6 +17,10 @@ plugins {
 
 description = "palantir baseline代码规范化插件"
 
+dependencies {
+    errorprone 'com.google.errorprone:error_prone_check_api:2.36.0'
+}
+
 // 代码自动格式化配置.
 spotless {
     java {

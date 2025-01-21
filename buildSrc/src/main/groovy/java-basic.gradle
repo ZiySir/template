@@ -8,8 +8,10 @@ description = "Java开发基础包，引入该包即可使用Java开发基础功
 java {
     // 管理gradle构建过程中的JDK版本，推荐使用，避免因为Gradle构建中JDK版本不同导致的问题
     toolchain {
-//        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 configurations {
@@ -29,8 +31,8 @@ dependencies {
 
 // 仓库配置
 repositories {
-    maven { url 'https://maven.aliyun.com/repository/public/' }
     mavenCentral()
     gradlePluginPortal()
+    maven { url 'https://maven.aliyun.com/repository/public/' }
     mavenLocal()
 }
