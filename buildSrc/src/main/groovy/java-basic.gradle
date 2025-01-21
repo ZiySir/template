@@ -31,8 +31,8 @@ dependencies {
 
 // 仓库配置
 repositories {
-    mavenCentral()
     gradlePluginPortal()
     maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenCentral()
     mavenLocal()
 }
