@@ -10,6 +10,7 @@ dependencies {
     implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:3.3.3" // SpringBoot版本
 
     implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.11.0"
+    implementation "net.ltgt.errorprone:net.ltgt.errorprone.gradle.plugin:4.1.0"
 
     implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.50.0"
     implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:6.25.0"
