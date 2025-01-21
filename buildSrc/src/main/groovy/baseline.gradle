@@ -19,6 +19,11 @@ description = "palantir baseline代码规范化插件"
 
 dependencies {
     errorprone 'com.google.errorprone:error_prone_check_api:2.36.0'
+
+    // 使用更安全的日志记录: https://github.com/palantir/safe-logging
+    implementation 'com.palantir.safe-logging:logger'
+    implementation 'com.palantir.safe-logging:preconditions'
+    testImplementation 'com.palantir.safe-logging:preconditions-assertj'
 }
 
 // 代码自动格式化配置.
@@ -33,4 +38,16 @@ spotless {
     groovyGradle {
         greclipse()
     }
+}
+
+tasks.withType(JavaCompile).configureEach(new Action<Task>() {
+    public void execute(Task task) {
+        // StrictUnusedVariable： 未使用变量
+        task.options.errorprone.disable 'StrictUnusedVariable'
+    }
+})
+
+// 将所有警告转换为错误，进一步强制规范代码
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['-Werror']
 }
