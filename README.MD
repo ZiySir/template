@@ -3,11 +3,4 @@
 2. 根据系统选择运行不同的初始化脚本
    * initialize.sh
    * initialize.bat
-3. 子模块创建的gradle模板
-```groovy
-description = '模块描述语句'
-
-dependencies {
-   
-}
-```
+3. 日志：@CustomLog

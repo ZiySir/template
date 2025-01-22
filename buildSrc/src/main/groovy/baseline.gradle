@@ -21,9 +21,9 @@ dependencies {
     errorprone 'com.google.errorprone:error_prone_check_api:2.36.0'
 
     // 使用更安全的日志记录: https://github.com/palantir/safe-logging
-    implementation 'com.palantir.safe-logging:logger'
-    implementation 'com.palantir.safe-logging:preconditions'
-    testImplementation 'com.palantir.safe-logging:preconditions-assertj'
+    implementation 'com.palantir.safe-logging:logger:3.7.0'
+    implementation 'com.palantir.safe-logging:preconditions:3.7.0'
+    testImplementation 'com.palantir.safe-logging:preconditions-assertj:3.7.0'
 }
 
 // 代码自动格式化配置.
