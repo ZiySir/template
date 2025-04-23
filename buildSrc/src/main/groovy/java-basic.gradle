@@ -16,12 +16,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
-}
-
 tasks.withType(JavaCompile).configureEach {
     options.encoding = "UTF-8"
 }
