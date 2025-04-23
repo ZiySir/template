@@ -10,12 +10,12 @@ dependencies {
     implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:3.3.3" // SpringBoot版本
 
     implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.29.0"
-    implementation "net.ltgt.errorprone:net.ltgt.errorprone.gradle.plugin:4.2.0"
 
     // palantir java-format
     implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.63.0"
 
-    // spotless
+    // spotless 这个暂时无法升级到7.x版本，因为palantir java-format中对spotless处理的spotless库不支持7.x
+    // 需要等到com.palantir.java-format.gradle.plugin升级
     implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:6.25.0"
 }
 

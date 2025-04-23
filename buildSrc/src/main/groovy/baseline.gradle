@@ -3,7 +3,6 @@ plugins {
     id 'java-library'
     id 'com.palantir.baseline-idea'
     // 代码静态检查插件
-    id 'net.ltgt.errorprone'
     id 'com.palantir.baseline-error-prone'
 
     // 代码格式检查插件
@@ -20,7 +19,7 @@ plugins {
 description = "palantir baseline代码规范化插件"
 
 dependencies {
-    errorprone 'com.google.errorprone:error_prone_check_api:2.36.0'
+//    errorprone 'com.google.errorprone:error_prone_check_api:2.36.0'
 
     // 使用更安全的日志记录: https://github.com/palantir/safe-logging
     implementation 'com.palantir.safe-logging:logger:3.7.0'

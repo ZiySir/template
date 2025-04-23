@@ -1,5 +1,8 @@
 package me.template;
 
+import com.palantir.logsafe.exceptions.SafeRuntimeException;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +27,10 @@ public class DemoApplication {
      */
     @RequestMapping("/demo1")
     public ResponseEntity<String> demo1() {
+        List<Object> objects = new ArrayList<>();
+        if (objects.isEmpty()) {
+            throw new SafeRuntimeException("");
+        }
         return ResponseEntity.ok("demo1");
     }
 }
