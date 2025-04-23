@@ -9,10 +9,13 @@ dependencies {
     implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.1.7"
     implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:3.3.3" // SpringBoot版本
 
-    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.11.0"
-    implementation "net.ltgt.errorprone:net.ltgt.errorprone.gradle.plugin:4.1.0"
+    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.29.0"
+    implementation "net.ltgt.errorprone:net.ltgt.errorprone.gradle.plugin:4.2.0"
 
-    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.50.0"
+    // palantir java-format
+    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.63.0"
+
+    // spotless
     implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:6.25.0"
 }
 
