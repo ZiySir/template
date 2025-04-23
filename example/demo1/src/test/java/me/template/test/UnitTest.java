@@ -14,7 +14,6 @@ import org.springframework.context.ApplicationContext;
 /**
  * .
  * @author ziy
- * @date 2025-01
  */
 @Slf4j
 @SpringBootTest(classes = DemoApplication.class)
