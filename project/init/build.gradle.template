@@ -5,10 +5,10 @@ plugins {
 }
 
 allprojects {
-    group = 'me.test'
+    group = '${GROUP}'
 }
 
-applyFromGradleFiles(new File("/project/script/gradle"))
+applyFromGradleFiles(new File("${rootDir}/project/script/gradle"))
 
 /**
  * 将指定目录下的所有直接.gradle文件进行apply from:应用.
