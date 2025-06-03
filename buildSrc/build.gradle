@@ -17,6 +17,9 @@ dependencies {
     // spotless 这个暂时无法升级到7.x版本，因为palantir java-format中对spotless处理的spotless库不支持7.x
     // 需要等到com.palantir.java-format.gradle.plugin升级
     implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:6.25.0"
+
+    // smart doc
+    implementation "com.ly.smart-doc:com.ly.smart-doc.gradle.plugin:3.1.0"
 }
 
 repositories {
