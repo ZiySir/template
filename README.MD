@@ -4,3 +4,6 @@
    * initialize.sh
    * initialize.bat
 3. 日志：@CustomLog
+
+# 规范
+1. 
