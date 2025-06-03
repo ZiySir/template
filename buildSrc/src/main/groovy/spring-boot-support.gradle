@@ -6,6 +6,23 @@ plugins {
 
 description = 'spring-boot支撑插件'
 
+dependencyManagement {
+    dependencies {
+        // 自建库依赖管理
+        dependencySet(group: 'me.ziyframework', version: '1.0.5.3-SNAPSHOT') {
+            entry 'web-spring-boot-starter'
+            entry 'data-spring-boot-starter'
+            entry 'security-spring-boot-starter'
+            entry 'id-spring-boot-starter'
+            entry 'idempotent-spring-boot-starter'
+            entry 'redis-spring-boot-starter'
+            entry 'validation-spring-boot-starter'
+        }
+    }
+}
+
+def mapstructVersion = '1.6.3'
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     // SpringBoot开发基础依赖项
@@ -18,6 +35,10 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // mapstruct
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
     // junit test
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
