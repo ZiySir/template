@@ -2,6 +2,8 @@ plugins {
     id "com.ly.smart-doc"
 }
 
+description = "smart-doc插件"
+
 smartdoc {
     configFile = file("src/main/resources/doc.json")
 }
