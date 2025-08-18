@@ -9,14 +9,14 @@ dependencies {
     implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.1.7"
     implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:3.3.3" // SpringBoot版本
 
-    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.29.0"
+    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.52.0"
 
     // palantir java-format
-    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.63.0"
+    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.73.0"
 
     // spotless 这个暂时无法升级到7.x版本，因为palantir java-format中对spotless处理的spotless库不支持7.x
     // 需要等到com.palantir.java-format.gradle.plugin升级
-    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:6.25.0"
+    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:7.2.1"
 
     // smart doc
     implementation "com.ly.smart-doc:com.ly.smart-doc.gradle.plugin:3.1.0"
