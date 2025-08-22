@@ -45,14 +45,9 @@ spotless {
     }
 }
 
-tasks.withType(JavaCompile).configureEach(new Action<Task>() {
-    public void execute(Task task) {
-        // StrictUnusedVariable： 未使用变量
-        task.options.errorprone.disable 'StrictUnusedVariable'
-    }
-})
-
 // 将所有警告转换为错误，进一步强制规范代码
 tasks.withType(JavaCompile).configureEach {
+    options.errorprone.disable 'StrictUnusedVariable'
+
     options.compilerArgs += ['-Werror']
 }
