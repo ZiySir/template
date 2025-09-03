@@ -2,21 +2,28 @@ plugins {
     id 'groovy-gradle-plugin'
 }
 
+def dependencyManagementVersion = "1.1.7"
+def springBootVersion = "4.0.0-M2"
+def baselineVersion = "6.52.0"
+def javaFormatVersion = "2.73.0"
+def spotlessVersion = "7.2.1"
+def smartDocVersion = "3.1.0"
+
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
 
-    implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:1.1.7"
-    implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:4.0.0-M1" // SpringBoot版本
+    implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:${dependencyManagementVersion}"
+    implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:${springBootVersion}" // SpringBoot版本
 
-    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:6.52.0"
+    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:${baselineVersion}"
 
     // palantir java-format
-    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:2.73.0"
-    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:7.2.1"
+    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:${javaFormatVersion}"
+    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:${spotlessVersion}"
 
     // smart doc
-    implementation "com.ly.smart-doc:com.ly.smart-doc.gradle.plugin:3.1.0"
+    implementation "com.ly.smart-doc:com.ly.smart-doc.gradle.plugin:${smartDocVersion}"
 }
 
 repositories {

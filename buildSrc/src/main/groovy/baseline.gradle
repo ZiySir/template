@@ -21,14 +21,16 @@ plugins {
 
 description = "palantir baseline代码规范化插件"
 
+def safeLoggingVersion = '3.7.0'
+
 dependencies {
     // 使用更安全的日志记录: https://github.com/palantir/safe-logging
-    implementation 'com.palantir.safe-logging:logger:3.7.0'
-    implementation 'com.palantir.safe-logging:preconditions:3.7.0'
-    testImplementation 'com.palantir.safe-logging:preconditions-assertj:3.7.0'
+    implementation "com.palantir.safe-logging:logger:${safeLoggingVersion}"
+    implementation "com.palantir.safe-logging:preconditions:${safeLoggingVersion}"
+    testImplementation "com.palantir.safe-logging:preconditions-assertj:${safeLoggingVersion}"
 
     // JSpecify: null检查
-    implementation 'org.jspecify:jspecify:1.0.0'
+    implementation "org.jspecify:jspecify:1.0.0"
 }
 
 // 代码自动格式化配置.
