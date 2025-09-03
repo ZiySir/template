@@ -5,5 +5,5 @@ plugins {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'me.ziyframework:web-spring-boot-starter'
 }

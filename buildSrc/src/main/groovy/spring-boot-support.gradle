@@ -9,7 +9,7 @@ description = 'spring-boot支撑插件'
 dependencyManagement {
     dependencies {
         // 自建库依赖管理
-        dependencySet(group: 'me.ziyframework', version: '1.0.5.3-SNAPSHOT') {
+        dependencySet(group: 'me.ziyframework', version: '1.2.0.1-SNAPSHOT') {
             entry 'web-spring-boot-starter'
             entry 'data-spring-boot-starter'
             entry 'security-spring-boot-starter'
