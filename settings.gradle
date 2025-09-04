@@ -10,23 +10,24 @@ rootProject.name = rootDir.name
 include("example:demo1")
 
 rootProject.children.each { p ->
-	walk(p) { project, name ->
-		project.buildFileName = "${name}.gradle"
-		if (!project.buildFile.exists()) {
-			new File(project.projectDir, "build.gradle").with { buildGradleFile ->
-				if (buildGradleFile.exists()) {
-					buildGradleFile.renameTo(project.buildFile)
-				}
-			}
-		}
-		println "project name: ${project.name}\tbuild file: ${project.buildFileName}"
-	}
+    walk(p) { project, name ->
+        project.buildFileName = "${name}.gradle"
+        if (!project.buildFile.exists()) {
+            def gradleFile = project.projectDir.listFiles()
+                    .find { it.name.endsWith('.gradle') }
+            if (gradleFile) {
+                def newFile = new File(project.projectDir, "${name}.gradle")
+                gradleFile.renameTo(newFile)
+            }
+        }
+        println "project name: ${project.name}\tbuild file: ${project.buildFileName}"
+    }
 }
 
 static def walk(ProjectDescriptor project, Closure cb) {
-	def projectName = project.name.split(":").last()
-	cb.call(project, projectName)
-	project.children.each { subProject ->
-		walk(subProject, cb)
-	}
+    def projectName = project.name.split(":").last()
+    cb.call(project, projectName)
+    project.children.each { subProject ->
+        walk(subProject, cb)
+    }
 }
