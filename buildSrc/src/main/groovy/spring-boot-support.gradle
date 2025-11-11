@@ -1,25 +1,10 @@
 plugins {
     id 'java-library'
     id 'org.springframework.boot'
-    id 'io.spring.dependency-management'
+    id 'dependencies-management'
 }
 
 description = 'spring-boot支撑插件'
-
-dependencyManagement {
-    dependencies {
-        // 自建库依赖管理
-        dependencySet(group: 'me.ziyframework', version: '1.2.0.1-SNAPSHOT') {
-            entry 'web-spring-boot-starter'
-            entry 'data-spring-boot-starter'
-            entry 'security-spring-boot-starter'
-            entry 'id-spring-boot-starter'
-            entry 'idempotent-spring-boot-starter'
-            entry 'redis-spring-boot-starter'
-            entry 'validation-spring-boot-starter'
-        }
-    }
-}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'

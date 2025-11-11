@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'java-library'
+    id 'dependencies-management'
+
     id 'com.palantir.baseline-idea'
     // 代码静态检查插件
     id 'com.palantir.baseline-error-prone'
@@ -21,13 +23,11 @@ plugins {
 
 description = "palantir baseline代码规范化插件"
 
-def safeLoggingVersion = '3.7.0'
-
 dependencies {
-    // 使用更安全的日志记录: https://github.com/palantir/safe-logging
-    implementation "com.palantir.safe-logging:logger:${safeLoggingVersion}"
-    implementation "com.palantir.safe-logging:preconditions:${safeLoggingVersion}"
-    testImplementation "com.palantir.safe-logging:preconditions-assertj:${safeLoggingVersion}"
+    // 弃用Palantir的SafeLoggin系列,全体移动到guava中: https://github.com/palantir/safe-logging
+//    implementation "com.palantir.safe-logging:logger:${safeLoggingVersion}"
+//    implementation "com.palantir.safe-logging:preconditions:${safeLoggingVersion}"
+//    testImplementation "com.palantir.safe-logging:preconditions-assertj:${safeLoggingVersion}"
 
     // JSpecify: null检查
     implementation "org.jspecify:jspecify:1.0.0"

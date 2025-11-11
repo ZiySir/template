@@ -1,6 +1,5 @@
 package me.template;
 
-import com.palantir.logsafe.exceptions.SafeRuntimeException;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * demo1.
  * created on 2025-01
+ *
  * @author ziy
  */
 @SpringBootApplication
@@ -29,7 +29,7 @@ public class DemoApplication {
     public ResponseEntity<String> demo1() {
         List<Object> objects = new ArrayList<>();
         if (objects.isEmpty()) {
-            throw new SafeRuntimeException("");
+            throw new RuntimeException("");
         }
         return ResponseEntity.ok("demo1");
     }

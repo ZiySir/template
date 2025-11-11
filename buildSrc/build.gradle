@@ -2,12 +2,13 @@ plugins {
     id 'groovy-gradle-plugin'
 }
 
-def dependencyManagementVersion = "1.1.7"
-def springBootVersion = "4.0.0-M2"
-def baselineVersion = "6.52.0"
-def javaFormatVersion = "2.73.0"
-def spotlessVersion = "7.2.1"
-def smartDocVersion = "3.1.0"
+ext {
+    dependencyManagementVersion = "1.1.7"
+    springBootVersion = "4.0.0-M2"
+    baselineVersion = "6.52.0"
+    javaFormatVersion = "2.73.0"
+    spotlessVersion = "7.2.1"
+}
 
 dependencies {
     implementation gradleApi()
@@ -21,9 +22,6 @@ dependencies {
     // palantir java-format
     implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:${javaFormatVersion}"
     implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:${spotlessVersion}"
-
-    // smart doc
-    implementation "com.ly.smart-doc:com.ly.smart-doc.gradle.plugin:${smartDocVersion}"
 }
 
 repositories {
