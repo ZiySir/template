@@ -2,7 +2,6 @@ plugins {
     id 'io.spring.dependency-management'
 }
 
-println project.extensions
 dependencyManagement {
     imports {
         mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
