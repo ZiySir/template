@@ -2,9 +2,12 @@ plugins {
     id 'groovy-gradle-plugin'
 }
 
+def props = new Properties()
+file('../gradle.properties').withInputStream { props.load(it) }
+
 ext {
     dependencyManagementVersion = "1.1.7"
-    springBootVersion = "4.0.0-M2"
+    springBootVersion = props['springBoot']
     baselineVersion = "6.52.0"
     javaFormatVersion = "2.73.0"
     spotlessVersion = "7.2.1"

@@ -40,4 +40,7 @@ out/
 **/rebel.xml
 
 ### 开发环境 ###
-project/environment/**/compontents/
+.project/environment/**/compontents/
+
+### 暂时跳过某些文件 ###
+.baseline

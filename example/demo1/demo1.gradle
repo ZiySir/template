@@ -1,9 +1,0 @@
-plugins {
-	id 'java-basic'
-	id 'spring-boot-support'
-	id 'baseline'
-}
-
-dependencies {
-    implementation 'me.ziyframework:web-spring-boot-starter'
-}

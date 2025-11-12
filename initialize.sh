@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 read -p "是否进行项目初始化?(y/n): " confirm
 
 if [[ $confirm != [yY] ]]; then
@@ -7,7 +7,7 @@ fi
 
 read -p "group: " group
 export GROUP=$group
-envsubst < project/init/build.gradle.template > build.gradle
+envsubst < .project/init/build.gradle.template > build.gradle
 
 read -p "是否创建代码仓库?(y/n): " confirm
 

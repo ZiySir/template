@@ -4,7 +4,8 @@ plugins {
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBoot}"
+        mavenBom 'me.ziyframework:bom:1.2.9-SNAPSHOT'
     }
 
     dependencies {
