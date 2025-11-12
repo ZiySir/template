@@ -1,0 +1,15 @@
+plugins {
+    id 'java-basic'
+    id 'baseline'
+    id 'spring-boot-support'
+}
+
+description = """
+权限认证模块
+"""
+
+dependencies {
+    // spring security boot starter
+    api "org.springframework.boot:spring-boot-starter-security"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+}
