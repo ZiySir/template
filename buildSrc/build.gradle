@@ -5,26 +5,18 @@ plugins {
 def props = new Properties()
 file('../gradle.properties').withInputStream { props.load(it) }
 
-ext {
-    dependencyManagementVersion = "1.1.7"
-    springBootVersion = props['springBoot']
-    baselineVersion = "6.52.0"
-    javaFormatVersion = "2.73.0"
-    spotlessVersion = "7.2.1"
-}
-
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
 
-    implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:${dependencyManagementVersion}"
-    implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:${springBootVersion}" // SpringBoot版本
+    implementation "io.spring.dependency-management:io.spring.dependency-management.gradle.plugin:${props['dependencyManagement']}"
+    implementation "org.springframework.boot:org.springframework.boot.gradle.plugin:${props['springBoot']}" // SpringBoot版本
 
-    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:${baselineVersion}"
+    implementation "com.palantir.baseline:com.palantir.baseline.gradle.plugin:${props['baseline']}"
 
     // palantir java-format
-    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:${javaFormatVersion}"
-    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:${spotlessVersion}"
+    implementation "com.palantir.java-format:com.palantir.java-format.gradle.plugin:${props['javaFormat']}"
+    implementation "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:${props['spotless']}"
 }
 
 repositories {

@@ -30,7 +30,7 @@ dependencies {
 //    testImplementation "com.palantir.safe-logging:preconditions-assertj:${safeLoggingVersion}"
 
     // JSpecify: null检查
-    implementation "org.jspecify:jspecify:1.0.0"
+    implementation "org.jspecify:jspecify"
 }
 
 // 代码自动格式化配置.
