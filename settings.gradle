@@ -7,7 +7,7 @@ pluginManagement {
 
 rootProject.name = rootDir.name
 
-include("module:web")
+//include("module:web")
 
 rootProject.children.each { p ->
     walk(p) { project, name ->
