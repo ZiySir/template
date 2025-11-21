@@ -36,6 +36,7 @@ dependencies {
 // 代码自动格式化配置.
 spotless {
     java {
+        target 'src/main/java/**/*.java', 'src/main/test/**/*.java'
         lineEndings com.diffplug.spotless.LineEnding.UNIX
         endWithNewline()
         leadingTabsToSpaces 4
@@ -43,7 +44,7 @@ spotless {
         custom 'Lambda fix', { it.replace('} )', '})').replace('} ,', '},') }
     }
     groovyGradle {
-        greclipse()
+        greclipse().configFile("$rootDir/build/baseline-format/greclipse.properties")
     }
 }
 
