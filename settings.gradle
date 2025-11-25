@@ -1,4 +1,3 @@
-apply from: 'gradle/agent-init.gradle'
 pluginManagement {
 	repositories {
 		mavenCentral()
