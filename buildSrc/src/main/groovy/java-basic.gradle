@@ -1,6 +1,7 @@
 plugins {
     id 'base'
     id 'java'
+    id 'idea' // idea的gradle插件
 }
 
 description = "Java开发基础包，引入该包即可使用Java开发基础功能"
@@ -10,10 +11,10 @@ java {
     // 输出工具链信息: ./gradlew -q javaToolchains
     // 已关闭自动下载,见gradle.properties
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 }
 
 tasks.withType(JavaCompile).configureEach {
