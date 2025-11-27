@@ -24,11 +24,6 @@ plugins {
 description = "palantir baseline代码规范化插件"
 
 dependencies {
-    // 弃用Palantir的SafeLoggin系列,全体移动到guava中: https://github.com/palantir/safe-logging
-//    implementation "com.palantir.safe-logging:logger:${safeLoggingVersion}"
-//    implementation "com.palantir.safe-logging:preconditions:${safeLoggingVersion}"
-//    testImplementation "com.palantir.safe-logging:preconditions-assertj:${safeLoggingVersion}"
-
     // JSpecify: null检查
     implementation "org.jspecify:jspecify"
 }
